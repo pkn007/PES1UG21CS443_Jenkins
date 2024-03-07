@@ -5,13 +5,17 @@ pipeline {
         stage('Build') {
             steps {
                 // Compile the .cpp file using a shell script
-                sh 'g++ -o output hello.cpp'
+                script {
+                    sh 'g++ -o output hello.cpp'
+                }
             }
         }
         stage('Test') {
             steps {
                 // Print the output of the .cpp file using a shell script
-                sh './output'
+                script {
+                    sh './output'
+                }
             }
         }
         stage('Deploy') {
